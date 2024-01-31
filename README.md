@@ -4,7 +4,7 @@
 
 ### Stack
 ##### Main: React + typescript + redux toolkit
-Additionally: axios + styled-components + react-router-dom + react-intersection-observer + react-pull-to-refresh + normalize.css
+Additionally: axios + styled-components + react-router-dom + react-intersection-observer + react-simple-pull-to-refresh + normalize.css
 
 ### Техническое задание
 Необходимо написать SPA приложение на React, которое будет получать новости и изменять внешний вид (тему) при нажатии соответствующих кнопок.

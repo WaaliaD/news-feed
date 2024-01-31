@@ -1,5 +1,5 @@
 import React, {FC, useEffect, useState} from 'react';
-import ReactPullToRefresh from 'react-pull-to-refresh';
+import PullToRefresh from 'react-simple-pull-to-refresh';
 import {useAppDispatch, useAppSelector} from '../hooks/redux';
 import {newsSlice} from '../store/reducers/NewsSlice';
 import {INews} from '../models/INews';
@@ -63,23 +63,25 @@ const News: FC = () => {
             >
                 Загрузить
             </MainButton>
-            <ReactPullToRefresh onRefresh={reloadNews}>
-                {error && <h2>Произошла ошибка при {cachedNews ? 'обновлении' : 'загрузке'}: ${error}</h2>}
-                {isLoading && <h2>Идет загрузка...</h2>}
-                {news.map(value =>
-                    <NewsItem
-                        secondColor={theme.secondColor}
-                        color={theme.textColor}
-                        key={value.id}
-                        title={value.title}
-                        content={value.content}
-                        id={value.id}
-                        createdAt={value.createdAt}
-                        updatedAt={value.updatedAt}
-                    />
-                )}
-                <div ref={ref} style={{height: 10}}></div>
-            </ReactPullToRefresh>
+            <PullToRefresh onRefresh={reloadNews} pullingContent={''}>
+                <>
+                    {error && <h2>Произошла ошибка при {cachedNews ? 'обновлении' : 'загрузке'}: ${error}</h2>}
+                    {isLoading && <h2>Идет загрузка...</h2>}
+                    {news.map(value =>
+                        <NewsItem
+                            secondColor={theme.secondColor}
+                            color={theme.textColor}
+                            key={value.id}
+                            title={value.title}
+                            content={value.content}
+                            id={value.id}
+                            createdAt={value.createdAt}
+                            updatedAt={value.updatedAt}
+                        />
+                    )}
+                    <div ref={ref} style={{height: 10}}></div>
+                </>
+            </PullToRefresh>
         </StyledContainer>
     );
 };
