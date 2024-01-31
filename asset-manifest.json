@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/test-task-66bit/static/css/main.58462fbc.css",
+    "main.js": "/test-task-66bit/static/js/main.38ce1235.js",
+    "index.html": "/test-task-66bit/index.html",
+    "main.58462fbc.css.map": "/test-task-66bit/static/css/main.58462fbc.css.map",
+    "main.38ce1235.js.map": "/test-task-66bit/static/js/main.38ce1235.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.58462fbc.css",
+    "static/js/main.38ce1235.js"
+  ]
+}
