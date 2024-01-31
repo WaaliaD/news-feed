@@ -1,4 +1,6 @@
-# 66 bit тестовое задание
+# Тестовое задание 66 bit
+
+### [Ознакомиться можно по ссылке](https://waaliad.github.io/test-task-66bit/)
 
 ### Stack
 ##### Main: React + typescript + redux toolkit
