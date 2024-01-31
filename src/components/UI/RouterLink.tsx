@@ -9,18 +9,20 @@ interface RouterLinkProps {
     secondColor: string;
 }
 
-const RouterLink: FC<RouterLinkProps> = ({to, children, color, secondColor}) => {
-    const StyledRouterLink = styled(Link)`
+const StyledRouterLink = styled(Link)<{secondColor: string, color: string}>`
         position: absolute;
         top: 50px;
         right: 50px;
-        text-decoration-color: ${secondColor};
-        color: ${color};
+        text-decoration-color: ${props => props.secondColor};
+        color: ${props => props.color};
     `;
 
+const RouterLink: FC<RouterLinkProps> = ({to, children, color, secondColor}) => {
     return (
         <StyledRouterLink
             to={to}
+            color={color}
+            secondColor={secondColor}
         >
             {children}
         </StyledRouterLink>

@@ -78,6 +78,8 @@ const News: FC = () => {
                 {isLoading && <h2>Идет загрузка...</h2>}
                 {news.map(value =>
                     <NewsItem
+                        secondColor={theme.secondColor}
+                        color={theme.textColor}
                         key={value.id}
                         title={value.title}
                         content={value.content}

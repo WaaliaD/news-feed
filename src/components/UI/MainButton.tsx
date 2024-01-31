@@ -8,16 +8,20 @@ interface MainButtonProps {
     backgroundColor: string;
 }
 
-const MainButton: FC<MainButtonProps> = ({children, onClick, color, backgroundColor}) => {
-    const StyledMainButton = styled.button`
-        color: ${color};
-        background-color: ${backgroundColor};
-        border: ${color} solid 1px;
-        border-radius: 5px;
-    `
+const StyledMainButton = styled.button<{ color: string, backgroundColor: string }>`
+    color: ${props => props.color};
+    background-color: ${props => props.backgroundColor};
+    border: ${props => props.color} solid 1px;
+    border-radius: 5px;
+`
 
+const MainButton: FC<MainButtonProps> = ({children, onClick, color, backgroundColor}) => {
     return (
-        <StyledMainButton onClick={onClick}>
+        <StyledMainButton
+            onClick={onClick}
+            color={color}
+            backgroundColor={backgroundColor}
+        >
             {children}
         </StyledMainButton>
     );
