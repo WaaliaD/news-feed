@@ -1,17 +1,19 @@
 import React, {FC} from 'react';
 
 interface NewsItemProps {
-    id: number;
-    userID: number;
     title: string;
-    body: string;
+    content: string;
+    id: number;
+    createdAt: string;
+    updatedAt: string;
 }
 
-const NewsItem: FC<NewsItemProps> = ({id, userID, title, body}) => {
+const NewsItem: FC<NewsItemProps> = ({title, content, id, createdAt, updatedAt}) => {
     return (
         <div>
             <h2>{id} {title}</h2>
-            <p>{body}</p>
+            <h5>{createdAt} {updatedAt}</h5>
+            <p>{content}</p>
         </div>
     );
 };

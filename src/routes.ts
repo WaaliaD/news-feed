@@ -1,4 +1,4 @@
-import {routesType, NEWS_ROUTE, THEME_ROUTE} from './utils/consts';
+import {routesType, NEWS_ROUTE, THEME_ROUTE} from './utils/routesConsts';
 import News from './components/News';
 import Theme from './components/Theme';
 import {FC} from 'react';

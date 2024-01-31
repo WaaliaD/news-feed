@@ -29,7 +29,7 @@ export const newsSlice = createSlice({
             state.isLoading = false;
             state.error = action.payload;
         },
-        dispatchCache(state, action: PayloadAction<INews[]>) {
+        dispatchCachedNews(state, action: PayloadAction<INews[]>) {
             state.news = action.payload;
         }
     }

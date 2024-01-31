@@ -1,7 +1,7 @@
 import React from 'react';
 import {Navigate, Route, Routes} from 'react-router-dom';
 import {routes} from '../routes';
-import {NEWS_ROUTE} from '../utils/consts';
+import {NEWS_ROUTE} from '../utils/routesConsts';
 
 const AppRouter = () => {
     return (
