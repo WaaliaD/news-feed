@@ -1,10 +1,8 @@
 import React, {FC, useEffect} from 'react';
-import {NEWS_ROUTE} from '../utils/routesConsts';
 import {useAppDispatch, useAppSelector} from '../hooks/redux';
 import {fetchColorDesign} from '../store/reducers/ActionCreators';
 import styled from 'styled-components';
-import RouterLink from './UI/RouterLink';
-import {BLUE_COLOR, DARK_COLOR, LIGHT_COLOR} from '../utils/colorsConsts';
+import {BLUE_COLOR, colorsType, DARK_COLOR, LIGHT_COLOR} from '../utils/colorsConsts';
 import {themeSlice} from '../store/reducers/ThemeSlice';
 import {ITheme} from '../models/ITheme';
 import MainButton from './UI/MainButton';
@@ -13,7 +11,7 @@ const StyledContainer = styled.div<{backgroundColor: string, color: string}>`
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    min-height: 92vh;
     background-color: ${props => props.backgroundColor};
     color: ${props => props.color};
 `
@@ -38,41 +36,40 @@ const Theme: FC = () => {
         }
     }, [])
 
+    function changeTheme (color: colorsType) {
+        if(theme.name !== color) {
+            dispatch(fetchColorDesign(color));
+        }
+    }
+
     return (
         <StyledContainer
             backgroundColor={theme.mainColor}
             color={theme.textColor}
         >
-            <RouterLink
-                secondColor={theme.textColor}
-                color={theme.secondColor}
-                to={NEWS_ROUTE}
-            >
-                Новости
-            </RouterLink>
             <h2>Текущая тема:</h2>
             <h3>{theme.title}</h3>
             <InteractiveBoard>
                 <MainButton
-                    onClick={() => dispatch(fetchColorDesign(DARK_COLOR))}
+                    onClick={() => changeTheme(DARK_COLOR)}
                     color={theme.textColor}
                     backgroundColor={theme.secondColor}
                 >
-                    dark
+                    Темная тема
                 </MainButton>
                 <MainButton
-                    onClick={() => dispatch(fetchColorDesign(LIGHT_COLOR))}
+                    onClick={() => changeTheme(LIGHT_COLOR)}
                     color={theme.textColor}
                     backgroundColor={theme.secondColor}
                 >
-                    light
+                    Светлая тема
                 </MainButton>
                 <MainButton
-                    onClick={() => dispatch(fetchColorDesign(BLUE_COLOR))}
+                    onClick={() => changeTheme(BLUE_COLOR)}
                     color={theme.textColor}
                     backgroundColor={theme.secondColor}
                 >
-                    blue
+                    Синяя тема
                 </MainButton>
             </InteractiveBoard>
             {error && <h2>Произошла ошибка при обновлении темы: ${error}</h2>}

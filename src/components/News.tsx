@@ -1,5 +1,4 @@
 import React, {FC, useEffect, useState} from 'react';
-import {THEME_ROUTE} from '../utils/routesConsts';
 import ReactPullToRefresh from 'react-pull-to-refresh';
 import {useAppDispatch, useAppSelector} from '../hooks/redux';
 import {newsSlice} from '../store/reducers/NewsSlice';
@@ -7,7 +6,6 @@ import {INews} from '../models/INews';
 import NewsItem from './NewsItem';
 import {fetchNews} from '../store/reducers/ActionCreators';
 import styled from 'styled-components';
-import RouterLink from './UI/RouterLink'
 import MainButton from './UI/MainButton';
 import {ITheme} from '../models/ITheme';
 import {themeSlice} from '../store/reducers/ThemeSlice';
@@ -17,7 +15,7 @@ const StyledContainer = styled.div<{backgroundColor: string, color: string}>`
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh;
+    min-height: 92vh;
     background-color: ${props => props.backgroundColor};
     color: ${props => props.color};
 `
@@ -59,13 +57,6 @@ const News: FC = () => {
             backgroundColor={theme.mainColor}
             color={theme.textColor}
         >
-            <RouterLink
-                secondColor={theme.textColor}
-                color={theme.secondColor}
-                to={THEME_ROUTE}
-            >
-                Темы
-            </RouterLink>
             <MainButton
                 onClick={reloadNews}
                 color={theme.textColor}

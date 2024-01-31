@@ -6,23 +6,27 @@ interface RouterLinkProps {
     to: string;
     children: string;
     color: string;
-    secondColor: string;
+    right?: string;
+    left?: string;
 }
 
-const StyledRouterLink = styled(Link)<{secondColor: string, color: string}>`
-        position: absolute;
-        top: 50px;
-        right: 50px;
-        text-decoration-color: ${props => props.secondColor};
-        color: ${props => props.color};
-    `;
+const StyledRouterLink = styled(Link)<{color: string, right?: string, left?: string}>`
+    position: fixed;
+    bottom: calc(4vh - 1rem);
+    right: ${({right = 'auto'}) => right};
+    left: ${({left = 'auto'}) => left};;
+    text-decoration: none;
+    color: ${props => props.color};
+    font-size: 1.3rem;
+`;
 
-const RouterLink: FC<RouterLinkProps> = ({to, children, color, secondColor}) => {
+const RouterLink: FC<RouterLinkProps> = ({to, children, color, right, left}) => {
     return (
         <StyledRouterLink
+            right={right}
+            left={left}
             to={to}
             color={color}
-            secondColor={secondColor}
         >
             {children}
         </StyledRouterLink>

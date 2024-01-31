@@ -13,6 +13,7 @@ const StyledMainButton = styled.button<{ color: string, backgroundColor: string 
     background-color: ${props => props.backgroundColor};
     border: ${props => props.color} solid 1px;
     border-radius: 5px;
+    padding: 0.5rem;
 `
 
 const MainButton: FC<MainButtonProps> = ({children, onClick, color, backgroundColor}) => {
