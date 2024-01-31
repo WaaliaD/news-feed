@@ -28,7 +28,7 @@ const News: FC = () => {
     const {theme} = useAppSelector(state => state.themeReducer);
     const cachedNews = localStorage.getItem('news');
     const cachedTheme = localStorage.getItem('theme');
-    const [pageNumber, setPageNumber] = useState(1);
+    const [pageNumber, setPageNumber] = useState(0);
     const {ref, inView} = useInView();
 
     async function reloadNews() {
@@ -49,7 +49,6 @@ const News: FC = () => {
         if (cachedTheme) {
             dispatch(dispatchCachedTheme(JSON.parse(cachedTheme) as ITheme));
         }
-        setPageNumber(1);
     }, [])
 
     return (
