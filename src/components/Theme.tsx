@@ -20,7 +20,9 @@ const StyledContainer = styled.div<{backgroundColor: string, color: string}>`
 
 const InteractiveBoard = styled.div`
     display: flex;
-    width: 50vw;
+    flex-direction: column;
+    width: 35vw;
+    height: 25vh;
     justify-content: space-around;
 `
 
@@ -42,7 +44,8 @@ const Theme: FC = () => {
             color={theme.textColor}
         >
             <RouterLink
-                color={theme.textColor}
+                secondColor={theme.textColor}
+                color={theme.secondColor}
                 to={NEWS_ROUTE}
             >
                 Новости

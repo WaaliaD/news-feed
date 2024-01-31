@@ -6,12 +6,12 @@ import {themeSlice} from './ThemeSlice';
 import {ITheme} from '../../models/ITheme';
 import {colorsType} from '../../utils/colorsConsts';
 
-export const fetchNews = () => async (dispatch: AppDispatch) => {
+export const fetchNews = (page: number, news: INews[]) => async (dispatch: AppDispatch) => {
     try {
         dispatch(newsSlice.actions.newsFetching());
-        const response = await axios.get<INews[]>('https://frontappapi.dock7.66bit.ru/api/news/get?page=1&count=10');
-        dispatch(newsSlice.actions.newsFetchingSuccess(response.data));
-        localStorage.setItem('news', JSON.stringify(response.data));
+        const response = await axios.get<INews[]>(`https://frontappapi.dock7.66bit.ru/api/news/get?page=${page}&count=10`);
+        dispatch(newsSlice.actions.newsFetchingSuccess(news.concat(response.data)));
+        localStorage.setItem('news', JSON.stringify(news.concat(response.data)));
     } catch (error: unknown) {
         if (error instanceof Error) {
             dispatch(newsSlice.actions.newsFetchingError(error.message))

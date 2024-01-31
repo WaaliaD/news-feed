@@ -13,7 +13,7 @@ const MainButton: FC<MainButtonProps> = ({children, onClick, color, backgroundCo
         color: ${color};
         background-color: ${backgroundColor};
         border: ${color} solid 1px;
-        border-radius: 10%;
+        border-radius: 5px;
     `
 
     return (
