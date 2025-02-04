@@ -5,7 +5,7 @@ import Navbar from './components/Navbar';
 
 export default function App() {
     return (
-        <BrowserRouter basename='/test-task-66bit'>
+        <BrowserRouter basename='/news-feed'>
             <AppRouter/>
             <Navbar />
         </BrowserRouter>
