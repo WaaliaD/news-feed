@@ -1,6 +1,6 @@
 {
-  "homepage": "https://waaliad.github.io/test-task-66bit",
-  "name": "testtask66bit",
+  "homepage": "https://waaliad.github.io/news-feed",
+  "name": "news-feed",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
